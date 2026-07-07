@@ -1,7 +1,9 @@
 import Image from "next/image";
+import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
 import LocaleSwitcher from "@/components/locale-switcher";
-import { type Locale } from "@/i18n/routing";
+import { routing } from "@/i18n/routing";
 import styles from "./page.module.css";
 
 export default async function Home({
@@ -10,7 +12,12 @@ export default async function Home({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  setRequestLocale(locale as Locale);
+
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
+  setRequestLocale(locale);
 
   const t = await getTranslations("HomePage");
 

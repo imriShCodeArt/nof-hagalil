@@ -3,14 +3,15 @@
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
+import type { ReactNode } from "react";
 import { prefixer } from "stylis";
 import rtlPlugin from "stylis-plugin-rtl";
-import type { Locale } from "@/i18n/routing";
 import { getLocaleDirection } from "@/i18n/locale";
+import type { Locale } from "@/i18n/routing";
 import { createAppTheme } from "@/theme/theme";
 
 type AppProvidersProps = {
-  children: React.ReactNode;
+  children: ReactNode;
   locale: Locale;
 };
 

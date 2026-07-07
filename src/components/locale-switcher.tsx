@@ -2,7 +2,7 @@
 
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
-import { routing, type Locale } from "@/i18n/routing";
+import { routing } from "@/i18n/routing";
 import styles from "./locale-switcher.module.css";
 
 export default function LocaleSwitcher() {
@@ -20,7 +20,7 @@ export default function LocaleSwitcher() {
           className={styles.button}
           aria-current={cur === locale ? "true" : undefined}
           disabled={cur === locale}
-          onClick={() => router.replace(pathname, { locale: cur as Locale })}
+          onClick={() => router.replace(pathname, { locale: cur })}
         >
           {t("locale", { locale: cur })}
         </button>
