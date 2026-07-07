@@ -1,0 +1,16 @@
+{
+  "LocaleLayout": {
+    "title": "Nof Hagalil",
+    "description": "Nof Hagalil website"
+  },
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "locale": "{locale, select, he {עברית} en {English} other {Unknown}}"
+  },
+  "HomePage": {
+    "title": "To get started, edit the page.tsx file.",
+    "intro": "Looking for a starting point or more instructions? Head over to <templates>Templates</templates> or the <learning>Learning</learning> center.",
+    "deployNow": "Deploy Now",
+    "documentation": "Documentation"
+  }
+}
