@@ -5,6 +5,7 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getLocaleDirection } from "@/i18n/locale";
 import { routing, type Locale } from "@/i18n/routing";
+import AppProviders from "@/theme/app-providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -59,7 +60,9 @@ export default async function LocaleLayout({
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
       <body>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider>
+          <AppProviders locale={locale as Locale}>{children}</AppProviders>
+        </NextIntlClientProvider>
       </body>
     </html>
   );
