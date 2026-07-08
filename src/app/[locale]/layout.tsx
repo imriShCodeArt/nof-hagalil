@@ -7,6 +7,7 @@ import type { ReactNode } from "react";
 import { getLocaleDirection } from "@/i18n/locale";
 import { routing } from "@/i18n/routing";
 import AppProviders from "@/theme/app-providers";
+import AppShellLayout from "@/shell/app-shell-layout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -67,7 +68,9 @@ export default async function LocaleLayout({
     >
       <body>
         <NextIntlClientProvider>
-          <AppProviders locale={locale}>{children}</AppProviders>
+          <AppProviders locale={locale}>
+            <AppShellLayout>{children}</AppShellLayout>
+          </AppProviders>
         </NextIntlClientProvider>
       </body>
     </html>

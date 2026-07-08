@@ -6,15 +6,22 @@ declare const messages: {
     "title": "נוף הגליל",
     "description": "אתר נוף הגליל"
   },
+  "AppShell": {
+    "defaultTitle": "נוף הגליל",
+    "openMenu": "פתיחת תפריט",
+    "navHome": "דף הבית"
+  },
   "LocaleSwitcher": {
     "label": "שינוי שפה",
     "locale": "{locale, select, he {עברית} en {English} other {Unknown}}"
   },
   "HomePage": {
-    "title": "כדי להתחיל, ערכו את קובץ page.tsx",
-    "intro": "מחפשים נקודת התחלה או הוראות נוספות? עברו ל-<templates>תבניות</templates> או ל-<learning>מרכז הלמידה</learning>.",
-    "deployNow": "פריסה עכשיו",
-    "documentation": "תיעוד"
+    "title": "ברוכים הבאים לנוף הגליל",
+    "description": "מערכת ה-shell מאפשרת לכל דף ורכיב לשלוט בתפריט, בכותרת ובהודעות דרך hooks.",
+    "toggleDrawer": "פתיחת/סגירת תפריט",
+    "showSnackbar": "הצגת הודעה",
+    "drawerOpened": "התפריט נפתח",
+    "demoSnackbar": "הודעה מהדף"
   }
 };
 export default messages;

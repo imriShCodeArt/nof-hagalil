@@ -1,9 +1,10 @@
 "use client";
 
+import ToggleButton from "@mui/material/ToggleButton";
+import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
-import styles from "./locale-switcher.module.css";
 
 export default function LocaleSwitcher() {
   const t = useTranslations("LocaleSwitcher");
@@ -12,19 +13,22 @@ export default function LocaleSwitcher() {
   const pathname = usePathname();
 
   return (
-    <nav aria-label={t("label")} className={styles.switcher}>
+    <ToggleButtonGroup
+      exclusive
+      size="small"
+      value={locale}
+      aria-label={t("label")}
+      onChange={(_, value) => {
+        if (value) {
+          router.replace(pathname, { locale: value });
+        }
+      }}
+    >
       {routing.locales.map((cur) => (
-        <button
-          key={cur}
-          type="button"
-          className={styles.button}
-          aria-current={cur === locale ? "true" : undefined}
-          disabled={cur === locale}
-          onClick={() => router.replace(pathname, { locale: cur })}
-        >
+        <ToggleButton key={cur} value={cur} aria-label={t("locale", { locale: cur })}>
           {t("locale", { locale: cur })}
-        </button>
+        </ToggleButton>
       ))}
-    </nav>
+    </ToggleButtonGroup>
   );
 }
